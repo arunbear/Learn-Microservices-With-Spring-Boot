@@ -19,6 +19,12 @@ public class ChallengeGeneratorServiceImpl implements ChallengeGeneratorService 
 
     @Override
     public Challenge randomChallenge() {
-        return null;
+        return new Challenge(nextRandomFactor(), nextRandomFactor());
+    }
+
+    private int nextRandomFactor() {
+        final int MINIMUM_FACTOR = 11;
+        final int MAXIMUM_FACTOR = 100;
+        return random.nextInt(MAXIMUM_FACTOR - MINIMUM_FACTOR) + MINIMUM_FACTOR;
     }
 }
