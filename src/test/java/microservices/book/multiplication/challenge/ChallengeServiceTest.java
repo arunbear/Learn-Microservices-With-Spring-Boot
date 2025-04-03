@@ -15,7 +15,7 @@ class ChallengeServiceTest {
     }
 
     @Test
-    void canVerifyCorrectAttempt() {
+    void verifies_a_correct_attempt() {
         // given
         var attemptDTO = new ChallengeAttemptDTO(50, 60, "john_doe", 3000);
 
@@ -26,13 +26,13 @@ class ChallengeServiceTest {
     }
 
     @Test
-    void canVerifyIncorrectAttempt() {
+    void verifies_an_incorrect_attempt() {
         // given
         var attemptDTO = new ChallengeAttemptDTO(50, 60, "john_doe", 5000);
 
         // when
         var challengeAttempt = challengeService.verifyAttempt(attemptDTO);
 
-        then(challengeAttempt.correct()).isTrue();
+        then(challengeAttempt.correct()).isFalse();
     }
 }
